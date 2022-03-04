@@ -1,1 +1,1 @@
-# simeon-st-tu-varna
+# My first university project
