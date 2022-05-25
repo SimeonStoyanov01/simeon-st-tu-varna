@@ -1,10 +1,13 @@
 package bg.tu_varna.sit;
 
+import java.text.ParseException;
 import java.util.Scanner;
 
 public class Main{
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ParseException {
+        //Appointment appointment=new Appointment(10,11,2022,"11:15","12:15","Nails","very important");
+           // appointment.getFormatStartTime();
         Scanner scanner = new Scanner(System.in);
         while(true){
             //getting user input

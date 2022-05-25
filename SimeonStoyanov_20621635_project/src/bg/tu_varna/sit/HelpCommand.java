@@ -4,22 +4,21 @@ public class HelpCommand  implements Command {
 
     @Override
     public void execute(Object[] args) {
-        if(args.length==0){
+        if(args.length==0) {
             printAll();
-        } else{
-            printCommandHelp((String)args[0]);
         }
     }
 
     private void printAll(){
         System.out.println(
-                "action - do some action\n" +
-                        "exit - exiting program(take no params)");
+                "The following commands are supported:\n" +
+                        "open <file>       opens <file> \n" +
+                        "close             closes currently opened file \n" +
+                        "save              saves the currently open file\n" +
+                        "saveas <file>     saves the currently open file in <file>\n" +
+                        "help              prints this information\n" +
+                        "exit          exits the program ");
         //TODO: Print all methods help
     }
 
-    private void printCommandHelp(String commandName){
-        //Todo: implement me
-        System.out.println("Here should be detailed command info about "+commandName+" if exist");
-    }
 }

@@ -14,7 +14,10 @@ public abstract class CommandFactory {
             return new SaveCommand();
         }else if(commandName.equalsIgnoreCase("close")){
             return new CloseCommand();
-        }
+        }else if(commandName.equalsIgnoreCase("book")){
+            return new BookCommand();
+        }else if(commandName.equalsIgnoreCase("unbook")){
+            return new UnbookCommand();}
         else{
             return null;
         }
