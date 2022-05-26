@@ -7,7 +7,7 @@ import java.util.GregorianCalendar;
 import  java.util.Date;
 public class Appointment {
     //<date> <starttime> <endtime> <name> <note>
-    private SimpleDateFormat sdft=new SimpleDateFormat("HH:mm");
+    public SimpleDateFormat sdft=new SimpleDateFormat("HH:mm");
 
     private GregorianCalendar date=new GregorianCalendar();
     //date.setTime()

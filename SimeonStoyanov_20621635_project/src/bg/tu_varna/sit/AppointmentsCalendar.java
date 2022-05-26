@@ -1,6 +1,7 @@
 package bg.tu_varna.sit;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -43,6 +44,14 @@ public class AppointmentsCalendar {
 
     }
     public static void unbook(int day, int month, int year, String startTime, String endTime){
+        for (Appointment a:appointmentArrayList) {
+            if(day==a.getDate().get(Calendar.DAY_OF_MONTH)&&month==a.getDate().get(Calendar.MONTH)
+                    &&year==a.getDate().get(Calendar.YEAR)&&startTime.equals(a.sdft.format(a.getStartTime()))
+                    &&endTime.equals(a.sdft.format(a.getEndTime()))){
+                appointmentArrayList.remove(a);
+            }
+            else System.out.println("No such appointment exists\n");
+        }
 
     }
 
