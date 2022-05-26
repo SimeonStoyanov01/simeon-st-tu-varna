@@ -30,6 +30,9 @@ public class BookCommand implements Command{
         Appointment a=new Appointment(day,month,year,startTime,endTime,name,note);
         AppointmentsCalendar.addToCollection(a);
 
+        //int days=a.getDate().get(Calendar.DAY_OF_WEEK);
+        //System.out.println(days);
+
         AppointmentsCalendar.all();
 
     }

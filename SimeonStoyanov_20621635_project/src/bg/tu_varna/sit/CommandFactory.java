@@ -9,9 +9,9 @@ public abstract class CommandFactory {
         }else if(commandName.equalsIgnoreCase("help")){
             return new HelpCommand();
         }else if(commandName.equalsIgnoreCase("save")){
-            return new SaveAsCommand();
-        }else if(commandName.equalsIgnoreCase("save as")){
             return new SaveCommand();
+        }else if(commandName.equalsIgnoreCase("save as")){
+            return new SaveAsCommand();
         }else if(commandName.equalsIgnoreCase("close")){
             return new CloseCommand();
         }else if(commandName.equalsIgnoreCase("book")){

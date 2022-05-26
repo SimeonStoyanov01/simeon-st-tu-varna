@@ -1,19 +1,29 @@
 package bg.tu_varna.sit;
 
+import javax.xml.bind.annotation.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import  java.util.Date;
+
+
+@XmlRootElement
+@XmlType(propOrder = {"name", "note","date","startTime","endTime"})
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Appointment {
     //<date> <starttime> <endtime> <name> <note>
     public SimpleDateFormat sdft=new SimpleDateFormat("HH:mm");
-
+    @XmlAttribute
     private GregorianCalendar date=new GregorianCalendar();
-    //date.setTime()
+
+    @XmlAttribute
     private Date startTime;
+    @XmlAttribute
     private Date endTime;
+    @XmlAttribute
     private String name;
+    @XmlAttribute
     private String note;
 
 
@@ -26,6 +36,9 @@ public class Appointment {
         this.endTime=new SimpleDateFormat("HH:mm").parse(endTime);
         this.name=name;
         this.note=note;
+    }
+
+    public Appointment() {
     }
 
     public String getName() {

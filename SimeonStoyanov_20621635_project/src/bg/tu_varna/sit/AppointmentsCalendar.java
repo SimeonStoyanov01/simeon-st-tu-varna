@@ -5,9 +5,14 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
+import javax.xml.bind.annotation.*;
 
+@XmlRootElement
+@XmlType(propOrder = {"list"})
+@XmlAccessorType(XmlAccessType.FIELD)
 public class AppointmentsCalendar {
     public static List<Appointment> appointmentArrayList=new ArrayList<>();
+    @XmlElement (name="appointment", type=Appointment.class)
 
 
     @Override
@@ -35,6 +40,9 @@ public class AppointmentsCalendar {
 
     public AppointmentsCalendar(ArrayList<Appointment> appointmentArrayList) {
         this.appointmentArrayList = appointmentArrayList;
+    }
+    public AppointmentsCalendar() {
+
     }
     //public AppointmentsCalendar(){}
     public static List<Appointment> addToCollection(Appointment appointment){
