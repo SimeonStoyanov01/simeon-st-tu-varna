@@ -8,11 +8,11 @@ import java.util.stream.Collectors;
 import javax.xml.bind.annotation.*;
 
 @XmlRootElement
-@XmlType(propOrder = {"list"})
+@XmlType(propOrder = {"appointmentArrayList"})
 @XmlAccessorType(XmlAccessType.FIELD)
 public class AppointmentsCalendar {
+    @XmlElement(name = "appointment")
     public static List<Appointment> appointmentArrayList=new ArrayList<>();
-    @XmlElement (name="appointment", type=Appointment.class)
 
 
     @Override
@@ -51,10 +51,9 @@ public class AppointmentsCalendar {
             return appointmentArrayList;
 
     }
-    public static void unbook(int day, int month, int year, String startTime, String endTime){
+    public static void unbook(String date, String startTime, String endTime){
         for (Appointment a:appointmentArrayList) {
-            if(day==a.getDate().get(Calendar.DAY_OF_MONTH)&&month==a.getDate().get(Calendar.MONTH)
-                    &&year==a.getDate().get(Calendar.YEAR)&&startTime.equals(a.sdft.format(a.getStartTime()))
+            if(date.equals(a.sdfd.format(a.getDate()))&&startTime.equals(a.sdft.format(a.getStartTime()))
                     &&endTime.equals(a.sdft.format(a.getEndTime()))){
                 appointmentArrayList.remove(a);
             }

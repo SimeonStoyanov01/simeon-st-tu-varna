@@ -1,6 +1,7 @@
 package bg.tu_varna.sit;
 
 import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -13,25 +14,28 @@ import  java.util.Date;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Appointment {
     //<date> <starttime> <endtime> <name> <note>
+    @XmlTransient
     public SimpleDateFormat sdft=new SimpleDateFormat("HH:mm");
-    @XmlAttribute
-    private GregorianCalendar date=new GregorianCalendar();
+    @XmlTransient
+    public SimpleDateFormat sdfd=new SimpleDateFormat("dd/MM/yyyy");
+    @XmlJavaTypeAdapter(DateAdapter.class)
+    private Date date;//=new GregorianCalendar();
 
-    @XmlAttribute
+    @XmlJavaTypeAdapter(TimeOfDayAdapter.class)
     private Date startTime;
-    @XmlAttribute
+    @XmlJavaTypeAdapter(TimeOfDayAdapter.class)
     private Date endTime;
     @XmlAttribute
     private String name;
-    @XmlAttribute
+
     private String note;
 
 
-    public Appointment(int day, int month, int year,String startTime,String endTime,String name,String note) throws ParseException {
-        this.date=new GregorianCalendar();
-        date.set(Calendar.YEAR,year);
-        date.set(Calendar.MONTH,month);
-        date.set(Calendar.DAY_OF_MONTH,day);
+    public Appointment(String date,String startTime,String endTime,String name,String note) throws ParseException {
+        this.date=new SimpleDateFormat("dd/MM/yyyy").parse(date);
+        //date.set(Calendar.YEAR,year);
+        //date.set(Calendar.MONTH,month);
+        //date.set(Calendar.DAY_OF_MONTH,day);
         this.startTime=new SimpleDateFormat("HH:mm").parse(startTime);
         this.endTime=new SimpleDateFormat("HH:mm").parse(endTime);
         this.name=name;
@@ -70,18 +74,18 @@ public class Appointment {
     @Override
     public String toString() {
         return "\nAppointment Name: " + name+"\n"+
-                "Date: " + date.get(Calendar.DATE) +"/"+date.get(Calendar.MONTH)+"/"+date.get(Calendar.YEAR)+
+                "Date: " + sdfd.format(date)+
                 "\nStart time: " + sdft.format(startTime) +
                 "\nEnd time: " + sdft.format(endTime) +
                 "\nnote: " + note +"\n"
                 ;
     }
 
-    public GregorianCalendar getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(GregorianCalendar date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 

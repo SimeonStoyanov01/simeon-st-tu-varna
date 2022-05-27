@@ -13,11 +13,12 @@ public class BookCommand implements Command{
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Pick a date: dd/MM/yyyy");
+        String date=scanner.nextLine();
 
-        int day=scanner.nextInt();
-        int month=scanner.nextInt();
-        int year=scanner.nextInt();
-        scanner.nextLine();
+       // int day=scanner.nextInt();
+        //int month=scanner.nextInt();
+        //int year=scanner.nextInt();
+        //scanner.nextLine();
         System.out.println("Start of appointment:");
         String startTime=scanner.nextLine();
         System.out.println("End of appointment: ");
@@ -27,7 +28,7 @@ public class BookCommand implements Command{
         System.out.println("Note: ");
         String note=scanner.nextLine();
 
-        Appointment a=new Appointment(day,month,year,startTime,endTime,name,note);
+        Appointment a=new Appointment(date,startTime,endTime,name,note);
         AppointmentsCalendar.addToCollection(a);
 
         //int days=a.getDate().get(Calendar.DAY_OF_WEEK);

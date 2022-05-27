@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<appointmentsCalendar>
+    <appointment name="uujj">
+        <note>hjjk</note>
+        <date>15/11/2022</date>
+        <startTime>15:30</startTime>
+        <endTime>16:30</endTime>
+    </appointment>
+    <appointment name="rex">
+        <note>bhhuuu</note>
+        <date>11/12/2022</date>
+        <startTime>15:30</startTime>
+        <endTime>16:50</endTime>
+    </appointment>
+</appointmentsCalendar>

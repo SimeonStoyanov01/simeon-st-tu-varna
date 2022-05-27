@@ -29,7 +29,7 @@ public class SaveCommand implements Command {
             // output pretty printed
             jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 
-            jaxbMarshaller.marshal(createCompanyObject(), new File("fruit.xml"));
+            jaxbMarshaller.marshal(createCompanyObject(), new File("file.xml"));
 
             jaxbMarshaller.marshal(createCompanyObject(), System.out);
 
@@ -48,26 +48,23 @@ public class SaveCommand implements Command {
     private static AppointmentsCalendar createCompanyObject() throws ParseException {
 
         AppointmentsCalendar comp = new AppointmentsCalendar();
+        comp.setAppointmentArrayList(comp.getAppointmentArrayList());
 
 
-        Appointment o1 = new Appointment();
-        String d1 = "12:15";
-        int i1 = 2022;
-        Date date1 = new SimpleDateFormat("HH:mm").parse(d1);
-        GregorianCalendar gc1 = new GregorianCalendar();
-        o1.setDate(gc1.set(Calendar.YEAR,i1));
-        o1.setId(1);
-        o1.setName("Banana");
-        o1.setPrice("8.99");
-        o1.setJoinDate(date1);
+        /*Appointment o1 = new Appointment();
+        o1.setName("Nails");
+        o1.setNote("Important");
+        o1.setStartTime(new SimpleDateFormat("HH:mm").parse("12:15"));
+        o1.setEndTime(new SimpleDateFormat("HH:mm").parse("13:15"));
+        o1.setDate(new SimpleDateFormat("dd/MM/yyyy").parse("10/11/2022"));
 
         Appointment o2 = new Appointment();
-        o2.setId(1);
-        o2.setDate();
-        o2.setName("Tomato");
-        o2.setPrice("2.99");
-        o2.setJoinDate(date);
-        comp.setList(Arrays.asList(o1, o2));
+        o2.setName("Hair");
+        o2.setNote("Important");
+        o2.setStartTime(new SimpleDateFormat("HH:mm").parse("14:15"));
+        o2.setEndTime(new SimpleDateFormat("HH:mm").parse("15:15"));
+        o2.setDate(new SimpleDateFormat("dd/MM/yyyy").parse("10/11/2022"));
+        comp.setAppointmentArrayList(Arrays.asList(o1, o2));*/
 
         return comp;
     }

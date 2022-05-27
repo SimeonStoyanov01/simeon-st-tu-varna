@@ -9,16 +9,17 @@ public class UnbookCommand implements Command{
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Pick a date: dd/MM/yyyy");
+        String date=scanner.nextLine();
 
-        int day=scanner.nextInt();
-        int month=scanner.nextInt();
-        int year=scanner.nextInt();
-        scanner.nextLine();
+        //int day=scanner.nextInt();
+        //int month=scanner.nextInt();
+        //int year=scanner.nextInt();
+       // scanner.nextLine();
         System.out.println("Start of appointment:");
         String startTime=scanner.nextLine();
         System.out.println("End of appointment: ");
         String endTime=scanner.nextLine();
-        AppointmentsCalendar.unbook(day,month,year,startTime,endTime);
+        AppointmentsCalendar.unbook(date,startTime,endTime);
 
         AppointmentsCalendar.all();
 

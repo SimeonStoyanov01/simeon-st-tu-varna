@@ -1,5 +1,5 @@
 package bg.tu_varna.sit;
-import xml_parser_utils.JaxXMLToObject;
+
 
 import java.util.Arrays;
 public class OpenCommand implements Command{
@@ -8,7 +8,7 @@ public class OpenCommand implements Command{
     public static String fileName;
 
     @Override
-    public void execute(Object[] args) {
+    public void execute(Object[] args) {/*
         if(args.length==0){
             System.out.println("saved");
         }
@@ -18,6 +18,6 @@ public class OpenCommand implements Command{
         openedFile=true;
 
         fileName = filePath.substring(filePath.lastIndexOf("\\")+1);
-        System.out.println("Successfully opened " + fileName);
+        System.out.println("Successfully opened " + fileName);*/
     }
 }
