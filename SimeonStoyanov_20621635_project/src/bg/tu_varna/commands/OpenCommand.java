@@ -28,34 +28,12 @@ public class OpenCommand implements Command {
             AppointmentsCalendar o = (AppointmentsCalendar) jaxbUnmarshaller.unmarshal(file);
             flagOpen=true;
 
-
+            System.out.println("Successfully opened file.xml");
             System.out.println(o);
             System.out.println("Successfully opened file.xml");
         } catch (JAXBException e) {
             e.printStackTrace();
         }
 
-    }/* {
-        JAXBContext jaxbContext = null;
-        try{
-
-        if(args.length==0){
-            System.out.println("saved");
-        }
-        filePath = String.join(" ", Arrays.stream(args).toArray(String[]::new));
-
-        StudentServiceSystem.setSystemInstance(JaxXMLToObject.jaxbXmlFileToObject(filePath));
-        openedFile=true;
-
-        fileName = filePath.substring(filePath.lastIndexOf("\\")+1);
-        System.out.println("Successfully opened " + fileName);
-        // XML Unmarshalling
-            File file = new File("file.xml");
-            Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
-            AppointmentsCalendar ac = (AppointmentsCalendar) jaxbUnmarshaller.unmarshal(file);
-            System.out.println(ac);
-    } catch (JAXBException e) {
-        e.printStackTrace();
     }
-    }*/
 }

@@ -1,7 +1,6 @@
 package bg.tu_varna.commands;
 
-import bg.tu_varna.commands.Command;
-import bg.tu_varna.sit.FileNotOpenedException;
+import bg.tu_varna.exceptions.FileNotOpenedException;
 
 public class ExitCommand implements Command {
 

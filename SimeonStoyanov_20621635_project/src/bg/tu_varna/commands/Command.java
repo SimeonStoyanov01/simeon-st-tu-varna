@@ -1,6 +1,6 @@
 package bg.tu_varna.commands;
 
-import bg.tu_varna.sit.FileNotOpenedException;
+import bg.tu_varna.exceptions.FileNotOpenedException;
 
 import java.text.ParseException;
 

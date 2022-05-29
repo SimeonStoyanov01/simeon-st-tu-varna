@@ -1,9 +1,7 @@
 package bg.tu_varna.commands;
 
-import bg.tu_varna.commands.Command;
-import bg.tu_varna.commands.OpenCommand;
 import bg.tu_varna.sit.AppointmentsCalendar;
-import bg.tu_varna.sit.FileNotOpenedException;
+import bg.tu_varna.exceptions.FileNotOpenedException;
 
 import java.text.ParseException;
 import java.util.Scanner;

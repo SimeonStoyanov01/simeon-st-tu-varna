@@ -1,5 +1,7 @@
 package bg.tu_varna.commands;
 
+import bg.tu_varna.exceptions.FileNotOpenedException;
+import bg.tu_varna.exceptions.WrongTimeException;
 import bg.tu_varna.sit.*;
 
 import java.text.ParseException;
@@ -37,8 +39,7 @@ public class BookCommand implements Command {
             e.printStackTrace();
         }
 
-        //int days=a.getDate().get(Calendar.DAY_OF_WEEK);
-        //System.out.println(days);
+
 
         AppointmentsCalendar.all();
         System.out.println("Appointment booked");

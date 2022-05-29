@@ -1,18 +1,18 @@
-package bg.tu_varna.sit;
+package bg.tu_varna.xmlAdapters;
 
 import javax.xml.bind.annotation.adapters.XmlAdapter;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class TimeOfDayAdapter extends XmlAdapter<String, Date> {
+public class DateAdapter extends XmlAdapter<String, Date> {
 
     private static final ThreadLocal<DateFormat> dateFormat
             = new ThreadLocal<DateFormat>() {
 
         @Override
         protected DateFormat initialValue() {
-            return new SimpleDateFormat("HH:mm");
+            return new SimpleDateFormat("dd/MM/yyyy");
         }
     };
 

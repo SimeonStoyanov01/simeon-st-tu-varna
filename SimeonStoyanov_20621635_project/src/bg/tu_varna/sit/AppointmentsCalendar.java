@@ -1,5 +1,7 @@
 package bg.tu_varna.sit;
 
+import bg.tu_varna.exceptions.WrongTimeException;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -94,7 +96,7 @@ public class AppointmentsCalendar {
     }
     public static void find(String occurrence){
         for (Appointment a:appointmentArrayList) {
-            if(occurrence.equals(a.getNote())||occurrence.equals(a.getName())){
+            if(occurrence.equalsIgnoreCase(a.getNote())||occurrence.equalsIgnoreCase(a.getName())){
                 System.out.println(a);
             }
 
@@ -108,19 +110,14 @@ public class AppointmentsCalendar {
             if(date.equals(appointmentArrayList.get(i).sdfd.format(appointmentArrayList.get(i).getDate()))
                     &&startTime.equals(appointmentArrayList.get(i).sdft.format(appointmentArrayList.get(i).getStartTime()))){
                 if(option.equalsIgnoreCase("date")){
-                  // newValue= a.sdfd.format(a.getDate());
                 appointmentArrayList.get(i).setDate(new SimpleDateFormat("dd/MM/yyyy").parse(newValue));}
                 if(option.equalsIgnoreCase("starttime")){
-                   // newValue= a.sdft.format(a.getStartTime());
                 appointmentArrayList.get(i).setStartTime(new SimpleDateFormat("HH:mm").parse(newValue));}
                 if(option.equalsIgnoreCase("endtime")){
-                    //newValue= a.sdft.format(a.getEndTime());
                     appointmentArrayList.get(i).setEndTime(new SimpleDateFormat("HH:mm").parse(newValue));}
                 if(option.equalsIgnoreCase("note")){
-                    //newValue= a.sdft.format(a.getEndTime());
                     appointmentArrayList.get(i).setNote(newValue);}
                 if(option.equalsIgnoreCase("name")){
-                    //newValue= a.sdft.format(a.getEndTime());
                     appointmentArrayList.get(i).setName(newValue);}
                 else
                     System.out.println("Wrong parameter!");
@@ -131,7 +128,7 @@ public class AppointmentsCalendar {
 
 
 
-    public List<Appointment> getAppointmentArrayList() {
+    public static List<Appointment> getAppointmentArrayList() {
         return appointmentArrayList;
     }
 

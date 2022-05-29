@@ -1,10 +1,8 @@
 package bg.tu_varna.commands;
 
 
-import bg.tu_varna.commands.Command;
-import bg.tu_varna.commands.OpenCommand;
 import bg.tu_varna.sit.AppointmentsCalendar;
-import bg.tu_varna.sit.FileNotOpenedException;
+import bg.tu_varna.exceptions.FileNotOpenedException;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -33,7 +31,7 @@ public class SaveCommand implements Command {
             jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 
             jaxbMarshaller.marshal(createCompanyObject(), new File("file.xml"));
-
+            System.out.println("Successfully saved in file.xml");
             jaxbMarshaller.marshal(createCompanyObject(), System.out);
             System.out.println("Successfully saved in file.xml");
 
@@ -55,20 +53,7 @@ public class SaveCommand implements Command {
         comp.setAppointmentArrayList(comp.getAppointmentArrayList());
 
 
-        /*Appointment o1 = new Appointment();
-        o1.setName("Nails");
-        o1.setNote("Important");
-        o1.setStartTime(new SimpleDateFormat("HH:mm").parse("12:15"));
-        o1.setEndTime(new SimpleDateFormat("HH:mm").parse("13:15"));
-        o1.setDate(new SimpleDateFormat("dd/MM/yyyy").parse("10/11/2022"));
 
-        Appointment o2 = new Appointment();
-        o2.setName("Hair");
-        o2.setNote("Important");
-        o2.setStartTime(new SimpleDateFormat("HH:mm").parse("14:15"));
-        o2.setEndTime(new SimpleDateFormat("HH:mm").parse("15:15"));
-        o2.setDate(new SimpleDateFormat("dd/MM/yyyy").parse("10/11/2022"));
-        comp.setAppointmentArrayList(Arrays.asList(o1, o2));*/
 
         return comp;
     }

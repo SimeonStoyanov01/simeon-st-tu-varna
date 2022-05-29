@@ -1,7 +1,7 @@
 package bg.tu_varna.commands;
 
 import bg.tu_varna.sit.AppointmentsCalendar;
-import bg.tu_varna.sit.FileNotOpenedException;
+import bg.tu_varna.exceptions.FileNotOpenedException;
 
 public class CloseCommand implements Command {
     @Override
@@ -9,7 +9,7 @@ public class CloseCommand implements Command {
         if(!OpenCommand.flagOpen){
             throw new FileNotOpenedException();
         }
-        AppointmentsCalendar.getCalendarInstance().getAppointmentArrayList().clear();
+        AppointmentsCalendar.getAppointmentArrayList().clear();
         OpenCommand.flagOpen=false;
         System.out.println("Progress is cleared");
 

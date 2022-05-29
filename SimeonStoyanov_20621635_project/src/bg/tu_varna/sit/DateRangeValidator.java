@@ -12,9 +12,7 @@ public class DateRangeValidator {
         this.endTime = endTime;
     }
 
-    // inclusive startDate and endDate
-    // the equals ensure the inclusive of startDate and endDate,
-    // if prefer exclusive, just delete the equals
+
     public boolean isWithinRange(Date testDate) {
 
         // it works, alternatives
@@ -25,10 +23,7 @@ public class DateRangeValidator {
         }
         return result;
 
-        // compare date and time, inclusive of startDate and endDate
-        // getTime() returns number of milliseconds since January 1, 1970, 00:00:00 GMT
-       // return testDate.getTime() >= startTime.getTime() &&
-               // testDate.getTime() <= endTime.getTime();
+
     }
 
 }

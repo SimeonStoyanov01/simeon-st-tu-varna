@@ -1,5 +1,8 @@
 package bg.tu_varna.sit;
 
+import bg.tu_varna.xmlAdapters.DateAdapter;
+import bg.tu_varna.xmlAdapters.TimeOfDayAdapter;
+
 import javax.xml.bind.annotation.*;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.text.ParseException;
@@ -96,24 +99,6 @@ public class Appointment implements Comparable<Appointment>{
     public void setEndTime(Date endTime) {
         this.endTime = endTime;
     }
-   /* public static Comparator<Appointment> appointmentComparator = new Comparator<Appointment>() {
-
-        // Comparing attributes of students
-        public int compare(Appointment a1, Appointment a2) {
-            String appointmentDate1=new SimpleDateFormat("HH:mm").format(a1.getStartTime());
-                    //= a1.getStartTime().toString().toUpperCase();
-            String appointmentDate2=new SimpleDateFormat("HH:mm").format(a2.getStartTime());
-                   // = a2.getStartTime().toString().toUpperCase();
-
-            // Returning in ascending order
-            return appointmentDate1.compareTo(
-                    appointmentDate2);
-
-            // descending order
-            // return
-            // StudentName2.compareTo(StudentName1);
-        }
-    };*/
 
 
     @Override
