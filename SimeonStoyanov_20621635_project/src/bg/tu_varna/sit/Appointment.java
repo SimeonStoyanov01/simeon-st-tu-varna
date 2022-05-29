@@ -4,16 +4,16 @@ import javax.xml.bind.annotation.*;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-import  java.util.Date;
+import java.util.*;
 
 
 @XmlRootElement
 @XmlType(propOrder = {"name", "note","date","startTime","endTime"})
 @XmlAccessorType(XmlAccessType.FIELD)
-public class Appointment {
+public class Appointment implements Comparable<Appointment>{
     //<date> <starttime> <endtime> <name> <note>
+    @XmlTransient
+    public static boolean holiday=false;
     @XmlTransient
     public SimpleDateFormat sdft=new SimpleDateFormat("HH:mm");
     @XmlTransient
@@ -96,5 +96,28 @@ public class Appointment {
     public void setEndTime(Date endTime) {
         this.endTime = endTime;
     }
+   /* public static Comparator<Appointment> appointmentComparator = new Comparator<Appointment>() {
 
+        // Comparing attributes of students
+        public int compare(Appointment a1, Appointment a2) {
+            String appointmentDate1=new SimpleDateFormat("HH:mm").format(a1.getStartTime());
+                    //= a1.getStartTime().toString().toUpperCase();
+            String appointmentDate2=new SimpleDateFormat("HH:mm").format(a2.getStartTime());
+                   // = a2.getStartTime().toString().toUpperCase();
+
+            // Returning in ascending order
+            return appointmentDate1.compareTo(
+                    appointmentDate2);
+
+            // descending order
+            // return
+            // StudentName2.compareTo(StudentName1);
+        }
+    };*/
+
+
+    @Override
+    public int compareTo(Appointment o) {
+        return getStartTime().compareTo(o.getStartTime());
+    }
 }

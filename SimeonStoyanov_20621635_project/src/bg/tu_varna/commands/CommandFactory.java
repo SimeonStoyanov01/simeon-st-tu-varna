@@ -1,4 +1,4 @@
-package bg.tu_varna.sit;
+package bg.tu_varna.commands;
 
 public abstract class CommandFactory {
     public static Command getCommand(String commandName){
@@ -10,14 +10,23 @@ public abstract class CommandFactory {
             return new HelpCommand();
         }else if(commandName.equalsIgnoreCase("save")){
             return new SaveCommand();
-        }else if(commandName.equalsIgnoreCase("save as")){
+        }else if(commandName.equalsIgnoreCase("saveas")){
             return new SaveAsCommand();
         }else if(commandName.equalsIgnoreCase("close")){
             return new CloseCommand();
         }else if(commandName.equalsIgnoreCase("book")){
             return new BookCommand();
         }else if(commandName.equalsIgnoreCase("unbook")){
-            return new UnbookCommand();}
+            return new UnbookCommand();
+        }else if(commandName.equalsIgnoreCase("agenda")){
+            return new AgendaCommand();
+        }else if(commandName.equalsIgnoreCase("find")){
+            return new FindCommand();
+        }else if(commandName.equalsIgnoreCase("holiday")){
+            return new HolidayCommand();
+        }else if(commandName.equalsIgnoreCase("change")){
+            return new ChangeCommand();
+        }
         else{
             return null;
         }

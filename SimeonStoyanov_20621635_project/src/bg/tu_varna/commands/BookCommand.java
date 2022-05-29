@@ -1,15 +1,17 @@
-package bg.tu_varna.sit;
+package bg.tu_varna.commands;
+
+import bg.tu_varna.sit.*;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.*;
-import java.util.stream.Collectors;
 
-public class BookCommand implements Command{
+public class BookCommand implements Command {
 
     @Override
-    public void execute(Object[] args) throws ParseException {
-
+    public void execute(Object[] args) throws ParseException, FileNotOpenedException {
+        if(!OpenCommand.flagOpen){
+            throw new FileNotOpenedException();
+        }
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Pick a date: dd/MM/yyyy");
@@ -29,12 +31,17 @@ public class BookCommand implements Command{
         String note=scanner.nextLine();
 
         Appointment a=new Appointment(date,startTime,endTime,name,note);
-        AppointmentsCalendar.addToCollection(a);
+        try {
+            AppointmentsCalendar.addToCollection(a);
+        } catch (WrongTimeException e) {
+            e.printStackTrace();
+        }
 
         //int days=a.getDate().get(Calendar.DAY_OF_WEEK);
         //System.out.println(days);
 
         AppointmentsCalendar.all();
+        System.out.println("Appointment booked");
 
     }
 }

@@ -30,4 +30,10 @@
         <startTime>18:30</startTime>
         <endTime>19:30</endTime>
     </appointment>
+    <appointment name="try">
+        <note>try</note>
+        <date>15/03/2001</date>
+        <startTime>12:20</startTime>
+        <endTime>13:20</endTime>
+    </appointment>
 </appointmentsCalendar>
