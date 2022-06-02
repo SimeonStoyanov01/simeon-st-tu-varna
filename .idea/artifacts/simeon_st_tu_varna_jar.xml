@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="simeon-st-tu-varna:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/simeon_st_tu_varna_jar</output-path>
+    <root id="archive" name="simeon-st-tu-varna.jar">
+      <element id="module-output" name="simeon-st-tu-varna" />
+    </root>
+  </artifact>
+</component>
