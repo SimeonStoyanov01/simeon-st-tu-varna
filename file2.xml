@@ -1,38 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <appointmentsCalendar>
-    <appointment name="Basketball">
-        <note>Very tired but I need to go</note>
-        <date>10/06/2022</date>
-        <startTime>09:15</startTime>
-        <endTime>11:15</endTime>
-    </appointment>
-    <appointment name="Football">
-        <note>Big match soon</note>
-        <date>10/06/2022</date>
-        <startTime>15:30</startTime>
-        <endTime>17:30</endTime>
-    </appointment>
-    <appointment name="Maths exam">
-        <note>Impossible</note>
-        <date>11/06/2022</date>
-        <startTime>15:31</startTime>
-        <endTime>17:30</endTime>
-    </appointment>
-    <appointment name="English test">
-        <note>I must study</note>
-        <date>12/06/2022</date>
-        <startTime>11:30</startTime>
-        <endTime>12:30</endTime>
-    </appointment>
-    <appointment name="Birthday party">
-        <note>44444444</note>
-        <date>11/11/2024</date>
-        <startTime>18:30</startTime>
-        <endTime>19:30</endTime>
-    </appointment>
-    <appointment name="Barber">
+    <appointment name="619">
         <note>4 weeks since the last time I have gone</note>
-        <date>10/06/2022</date>
+        <date>11/07/2022</date>
         <startTime>07:30</startTime>
         <endTime>08:30</endTime>
     </appointment>

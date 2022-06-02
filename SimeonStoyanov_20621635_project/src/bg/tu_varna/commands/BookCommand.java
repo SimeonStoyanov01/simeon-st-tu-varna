@@ -1,16 +1,19 @@
 package bg.tu_varna.commands;
 
+import bg.tu_varna.exceptions.EndBeforeStartException;
 import bg.tu_varna.exceptions.FileNotOpenedException;
+import bg.tu_varna.exceptions.HolidayException;
 import bg.tu_varna.exceptions.WrongTimeException;
 import bg.tu_varna.sit.*;
 
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class BookCommand implements Command {
 
     @Override
-    public void execute(Object[] args) throws ParseException, FileNotOpenedException {
+    public void execute(Object[] args) throws ParseException, FileNotOpenedException, HolidayException {
         if(!OpenCommand.flagOpen){
             throw new FileNotOpenedException();
         }
@@ -33,16 +36,18 @@ public class BookCommand implements Command {
         String note=scanner.nextLine();
 
         Appointment a=new Appointment(date,startTime,endTime,name,note);
+
         try {
             AppointmentsCalendar.addToCollection(a);
-        } catch (WrongTimeException e) {
-            e.printStackTrace();
+            AppointmentsCalendar.all();
+            System.out.println("Appointment booked");
+        } catch (WrongTimeException | EndBeforeStartException e) {
+            System.out.println(e);
         }
 
 
 
-        AppointmentsCalendar.all();
-        System.out.println("Appointment booked");
+
 
     }
 }

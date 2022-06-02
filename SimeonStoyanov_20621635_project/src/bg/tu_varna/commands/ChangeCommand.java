@@ -1,5 +1,7 @@
 package bg.tu_varna.commands;
 
+import bg.tu_varna.exceptions.EndBeforeStartException;
+import bg.tu_varna.exceptions.WrongTimeException;
 import bg.tu_varna.sit.AppointmentsCalendar;
 import bg.tu_varna.exceptions.FileNotOpenedException;
 
@@ -22,8 +24,12 @@ public class ChangeCommand implements Command {
         String option=scanner.nextLine();
         System.out.println("Enter a new value ");
         String newValue = scanner.nextLine();
+        try{
         AppointmentsCalendar.change(date,startTime,option,newValue);
         AppointmentsCalendar.all();
-        System.out.println("Appointment parameters changed");
+        System.out.println("Appointment parameters changed");}
+        catch(EndBeforeStartException | WrongTimeException e){
+            System.out.println(e);
+        }
     }
 }

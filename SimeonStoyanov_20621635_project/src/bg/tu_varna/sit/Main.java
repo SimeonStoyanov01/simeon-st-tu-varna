@@ -13,20 +13,24 @@ public class Main{
 
         Scanner scanner = new Scanner(System.in);
         while(true){
-            System.out.print("Enter your command: \n >");
-            String userInput = scanner.nextLine();
+            try {
+                System.out.print("Enter your command: \n >");
+                String userInput = scanner.nextLine();
 
-            String[] splitedInput = userInput.split("[ ]+");
+                String[] splitedInput = userInput.split("[ ]+");
 
-            String commandName = splitedInput[0];
-            Object[] commandArgs = new String[splitedInput.length-1];
-            System.arraycopy(splitedInput,1,commandArgs,0,commandArgs.length);
+                String commandName = splitedInput[0];
+                Object[] commandArgs = new String[splitedInput.length - 1];
+                System.arraycopy(splitedInput, 1, commandArgs, 0, commandArgs.length);
 
-            Command command = CommandFactory.getCommand(commandName);
-            if(command!=null)
-                command.execute(commandArgs);
-            else
-                System.out.println("Bad command. Try again or use help.");
+                Command command = CommandFactory.getCommand(commandName);
+                if (command != null)
+                    command.execute(commandArgs);
+                else
+                    System.out.println("Bad command. Try again or use help.");
+            }catch (Exception e){
+                System.out.println(e);
+            }
         }
     }
 }

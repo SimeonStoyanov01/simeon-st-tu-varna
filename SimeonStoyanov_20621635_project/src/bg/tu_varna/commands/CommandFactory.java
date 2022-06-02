@@ -26,6 +26,10 @@ public abstract class CommandFactory {
             return new HolidayCommand();
         }else if(commandName.equalsIgnoreCase("change")){
             return new ChangeCommand();
+        }else if(commandName.equalsIgnoreCase("busy")){
+            return new BusyDaysCommand();
+        }else if(commandName.equalsIgnoreCase("merge")){
+            return new MergeCommand();
         }
         else{
             return null;
