@@ -256,8 +256,8 @@ public class AppointmentsCalendar {
         return appointmentArrayList;
     }
 
-    public void setAppointmentArrayList(List<Appointment> appointmentArrayList) {
-        this.appointmentArrayList = appointmentArrayList;
+    public static void setAppointmentArrayList(List<Appointment> appointmentArrayList) {
+        appointmentArrayList = appointmentArrayList;
     }
     public static AppointmentsCalendar calendarInstance=new AppointmentsCalendar();
     public static AppointmentsCalendar getCalendarInstance(){

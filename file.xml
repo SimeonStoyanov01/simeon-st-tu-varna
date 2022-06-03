@@ -1,30 +1,36 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <appointmentsCalendar>
-    <appointment name="619">
+    <appointment name="Barber">
+        <note>4 weeks since the last time I have gone</note>
+        <date>16/08/2023</date>
+        <startTime>07:30</startTime>
+        <endTime>08:30</endTime>
+    </appointment>
+    <appointment name="Basketball">
         <note>4 weeks since the last time I have gone</note>
         <date>11/07/2022</date>
         <startTime>07:30</startTime>
         <endTime>08:30</endTime>
     </appointment>
-    <appointment name="1">
+    <appointment name="Football">
         <note>1e</note>
         <date>10/07/2022</date>
         <startTime>09:30</startTime>
         <endTime>10:30</endTime>
     </appointment>
-    <appointment name="2">
+    <appointment name="Volleyball">
         <note>2</note>
         <date>10/07/2022</date>
         <startTime>07:30</startTime>
         <endTime>08:30</endTime>
     </appointment>
-    <appointment name="3">
+    <appointment name="Reading books">
         <note>3</note>
         <date>10/07/2022</date>
         <startTime>11:30</startTime>
         <endTime>12:30</endTime>
     </appointment>
-    <appointment name="6">
+    <appointment name="Working on a project">
         <note>4 weeks since the last time I have gone</note>
         <date>11/07/2022</date>
         <startTime>15:30</startTime>

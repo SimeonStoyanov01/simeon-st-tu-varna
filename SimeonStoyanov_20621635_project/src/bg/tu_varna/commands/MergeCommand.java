@@ -35,34 +35,38 @@ public class MergeCommand implements Command {
 
             AppointmentsCalendar o = (AppointmentsCalendar) jaxbUnmarshaller.unmarshal(file);
             //OpenCommand.originalCalendarList=o.ge
+           // List<Appointment>ap=AppointmentsCalendar.appointmentArrayList;
             List<Appointment>appointmentList = OpenCommand.originalCalendarList;
-            /*for (int i=0;i<AppointmentsCalendar.appointmentArrayList.size();i++) {
+            AppointmentsCalendar.appointmentArrayList.addAll(appointmentList);
+          /*  for (Appointment a:appointmentList) {
+            for (int i=0;i<AppointmentsCalendar.appointmentArrayList.size();i++) {
+
                     if(a.getDate().equals(AppointmentsCalendar.appointmentArrayList.get(i).getDate())){
-                        DateRangeValidator checker = new DateRangeValidator(AppointmentsCalendar.appointmentArrayList.get(i).getStartTime(), AppointmentsCalendar.appointmentArrayList.get(i).getEndTime());
-                        if (((checker.isWithinRange(a.getStartTime())) && (!checker.isWithinRange(a.getEndTime())))
-                                || ((!checker.isWithinRange(a.getStartTime())) && (checker.isWithinRange(a.getEndTime())))
-                                || ((checker.isWithinRange(a.getStartTime())) && (checker.isWithinRange(a.getEndTime())))
-                                || ((!checker.isWithinRange(a.getStartTime())) && (!checker.isWithinRange(a.getEndTime()))
-                                && (a.getStartTime().before(AppointmentsCalendar.appointmentArrayList.get(i).getStartTime())
-                                && a.getEndTime().after(AppointmentsCalendar.appointmentArrayList.get(i).getEndTime())))) {
+                        DateRangeValidator checker = new DateRangeValidator(a.getStartTime(), a.getEndTime());
+                        if (((checker.isWithinRange(ap.get(i).getStartTime())) && (!checker.isWithinRange(ap.get(i).getEndTime())))
+                                || ((!checker.isWithinRange(ap.get(i).getStartTime())) && (checker.isWithinRange(ap.get(i).getEndTime())))
+                                || ((checker.isWithinRange(ap.get(i).getStartTime())) && (checker.isWithinRange(ap.get(i).getEndTime())))
+                                || ((!checker.isWithinRange(ap.get(i).getStartTime())) && (!checker.isWithinRange(ap.get(i).getEndTime()))
+                                && (ap.get(i).getStartTime().before(a.getStartTime())
+                                && ap.get(i).getEndTime().after(a.getEndTime())))) {
                             Scanner scanner = new Scanner(System.in);
 
                             System.out.println("do you wish to change your old appointment"+AppointmentsCalendar.appointmentArrayList.get(i).toString()+"yes/no");
                             String option=scanner.nextLine();
                             if(option.equalsIgnoreCase("yes")){
-                                AppointmentsCalendar.unbook(AppointmentsCalendar.appointmentArrayList.get(i).sdfd.format(AppointmentsCalendar.appointmentArrayList.get(i).getDate()),
-                                        AppointmentsCalendar.appointmentArrayList.get(i).sdft.format(AppointmentsCalendar.appointmentArrayList.get(i).getStartTime()),
-                                        AppointmentsCalendar.appointmentArrayList.get(i).sdft.format(AppointmentsCalendar.appointmentArrayList.get(i).getEndTime()));
-                            AppointmentsCalendar.appointmentArrayList.add(a);
+                                AppointmentsCalendar.unbook(a.sdfd.format(a.getDate()),
+                                       a.sdft.format(a.getStartTime()),
+                                        a.sdft.format(a.getEndTime()));
+                            appointmentList.add(ap.get(i));
                             break;}
                             if(option.equalsIgnoreCase("no"))
                                continue;
                         }
                     }
-                    else
 
+            }
                 }*/
-            AppointmentsCalendar.appointmentArrayList.addAll(appointmentList);
+            AppointmentsCalendar.setAppointmentArrayList(appointmentList);
 
             Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
 
@@ -71,7 +75,15 @@ public class MergeCommand implements Command {
 
             jaxbMarshaller.marshal(o, new File("file.xml"));
             System.out.println("Calendars merged");
-            jaxbMarshaller.marshal(o, System.out);
+
+            jaxbContext = JAXBContext.newInstance(AppointmentsCalendar.class);
+
+            File file1 = new File("file.xml");
+
+            Unmarshaller jaxbUnmarshaller1 = jaxbContext.createUnmarshaller();
+
+            AppointmentsCalendar o1 = (AppointmentsCalendar) jaxbUnmarshaller1.unmarshal(file1);
+            System.out.println(o1);
             System.out.println("Calendars merged");
         } catch (JAXBException e) {
             e.printStackTrace();

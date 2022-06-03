@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <appointmentsCalendar>
-    <appointment name="619">
+    <appointment name="Other cal appointment 1">
         <note>4 weeks since the last time I have gone</note>
-        <date>11/07/2022</date>
+        <date>16/07/2022</date>
         <startTime>07:30</startTime>
         <endTime>08:30</endTime>
+    </appointment>
+    <appointment name="Other cal appointment 2">
+        <note>newnewnewnew</note>
+        <date>17/07/2022</date>
+        <startTime>17:30</startTime>
+        <endTime>18:00</endTime>
     </appointment>
 </appointmentsCalendar>
